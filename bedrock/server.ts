@@ -4,7 +4,7 @@ import ZigzagScriptsResource from "./resources/resource-zigzag-scripts.ts";
 
 export const server = new Drash.Http.Server({
   directory: Deno.realPathSync("."),
-  response_output: "application/javascript",
+  response_output: "text/html",
   logger: new Drash.CoreLoggers.ConsoleLogger({
     enabled: true,
     level: "debug",
