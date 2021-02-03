@@ -1,0 +1,27 @@
+{
+  "name": "Zigzag",
+  "version": "0.2.0-alpha.23",
+  "slug": "zigzag",
+  "description": "A Zigbee visualisation system aimed at assisting users monitor and optimise their Zigbee mesh.",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "url": "https://github.com/Samantha-uk/zigzag",
+  "startup": "application",
+  "boot": "auto",
+  "ingress": true,
+  "ingress_entry": "./zigzag-panel",
+  "homeassistant": "2020.12.2",
+  "homeassistant_api": true,
+  "hassio_api": true,
+  "panel_icon": "mdi:zigbee",
+  "stage": "experimental",
+  "options": {
+    "data": "zha",
+    "layout": "d3",
+    "render": "pixi"
+  },
+  "schema": {
+    "data": "list(zha|file|gen)",
+    "layout": "list(d3)",
+    "render": "list(pixi|three)"
+  }
+}

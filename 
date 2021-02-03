@@ -1,0 +1,22 @@
+import { Drash } from "../deps.ts";
+export default class ZigzagScriptsResource extends Drash.Http.Resource {
+  static paths = ["/zigzag/scripts/:script_name"];
+
+  public async GET() {
+    let scriptName;
+    try {
+      // Try to read the script file specified
+      scriptName = this.request.getPathParam("script_name");
+      const fqfn = `./zigzag/${scriptName}`;
+      const scriptFile = Deno.readFileSync(fgfn);
+      this.response.body = scriptFile;
+      this.response.headers.set("Content-Type","application/javascript");
+    } catch (error) {
+      throw new Drash.Exceptions.HttpException(
+        400,
+        `Error loading ${scriptName}.`
+      );
+    }
+    return this.response;
+  }
+}
